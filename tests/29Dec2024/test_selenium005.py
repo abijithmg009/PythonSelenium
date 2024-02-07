@@ -1,20 +1,19 @@
 import time
 
 from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+
 
 # Chrome -> # Chrome Options
 # Edge -> Edge Options
 # Firefox -> Firefox Options
 
 def test_open_login():
-    driver = webdriver.Chrome()
-    driver.get("https://google.com")
+    driver = webdriver.Firefox()
+    driver.get("https://relc.dev.playosmo.com")
+    driver.maximize_window()
     #driver.navigate(). will not work in Python but work on Java
     print(driver.title)
     driver.refresh()
-    driver.get("https://www.bing.com")
-    print(driver.title)
-    driver.back()
-    driver.refresh()
-    time.sleep(5)
     driver.quit()

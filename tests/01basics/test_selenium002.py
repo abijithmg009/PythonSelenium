@@ -19,6 +19,8 @@ def test_open_url_verify_title(driver):
     extension_path = "/Users/abijithmg/Downloads/ad blocker.crx"
     chromeoptions.add_extension(extension_path)
     chromeoptions.add_argument("--start-maximized")
+    #chromeoptions.add_argument("--headless=new")
+    #witout UI it is fast and won't take much time.can't see the test
     driver = webdriver.Chrome(chromeoptions)
     LOGGER = logging.getLogger(__name__)
     driver.get("https://www.google.com")
