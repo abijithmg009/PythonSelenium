@@ -49,5 +49,12 @@ def test_vwologin():
     LOGGER.info("Title is "+driver.title)
     assert "Dashboard" in driver.title
 
+    driver.refresh()
+    driver.get("https://www.google.com")
+    LOGGER.warning("New title is "+driver.title)
+    driver.back()
+    driver.refresh()
+    driver.forward()
+
 
 
