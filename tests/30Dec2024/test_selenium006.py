@@ -18,8 +18,7 @@ import logging
 def test_vwologin():
     LOGGER = logging.getLogger(__name__)
     driver = webdriver.Chrome()
-    chromeoptions = webdriver.ChromeOptions()
-    chromeoptions.add_argument("--start-maximize")
+    driver.maximize_window()
     time.sleep(5)
     driver.get("https://app.vwo.com")
     '''
