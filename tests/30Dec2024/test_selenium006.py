@@ -56,4 +56,20 @@ def test_vwologin():
     driver.forward()
 
 
+def test_vwologinnegative():
+    driver = webdriver.Firefox()
+    driver.maximize_window()
+    driver.get("https://app.vwo.com")
+    time.sleep(5)
+
+    email_address_ele = driver.find_element(By.ID,"login-username")
+    password_ele = driver.find_element(By.NAME,"password")
+    signin_button_ele = driver.find_element(By.ID, "js-login-btn")
+    email_address_ele.send_keys("admin")
+    password_ele.send_keys("admin")
+    signin_button_ele.click()
+    time.sleep(5)
+    driver.quit()
+    #assert ("Your email, password, IP address or location did not match" in driver.find_element(By.ID,"js-notification-box-msg"))
+
 
