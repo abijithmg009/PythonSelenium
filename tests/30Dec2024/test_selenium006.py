@@ -31,8 +31,8 @@ def test_vwologin():
     find_element by_xplath : find an element using an XPath expression
     find_element by_link_text : finds an anchor element (a) by it's visible text
     find_element by_partial_link_text : finds an anchor element (a) by a partial match of it's link
-    find_element by_tag_name : finds an element by it's HTML tag name (eg:div, "input"
-    find_element by_class_name : find an element by it's css class name 
+    find_element by_tag_name : finds an element by it's HTML tag name (eg:div, "input")
+    find_element by_class_name : find an element by it's css class name remove the space using dot
     '''
     email_address_ele = driver.find_element(By.ID,"login-username")
     password_ele = driver.find_element(By.NAME,"password")
@@ -47,13 +47,9 @@ def test_vwologin():
     time.sleep(5)
     LOGGER.info("Title is "+driver.title)
     assert "Dashboard" in driver.title
-
-    driver.refresh()
-    driver.get("https://www.google.com")
-    LOGGER.warning("New title is "+driver.title)
-    driver.back()
-    driver.refresh()
-    driver.forward()
+    username = driver.find_element(By.XPATH, '//span[@class="Fw(semi-bold) ng-binding"]').text
+    print(username)
+    assert "Aman" == username
 
 
 def test_vwologinnegative():
@@ -68,8 +64,9 @@ def test_vwologinnegative():
     email_address_ele.send_keys("admin")
     password_ele.send_keys("admin")
     signin_button_ele.click()
+    error = driver.find_element(By.ID, "js-notification-box-msg").text
+    print(error)
+    assert error == 'Your email, password, IP address or location did not match'
     time.sleep(5)
     driver.quit()
-    #assert ("Your email, password, IP address or location did not match" in driver.find_element(By.ID,"js-notification-box-msg"))
-
 

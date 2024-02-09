@@ -18,8 +18,4 @@ def test_bookappoinment():
     driver.find_element(By.ID,"btn-login").click()
     print(driver.current_url)
     assert driver.current_url == "https://katalon-demo-cura.herokuapp.com/#appointment", "Error wrong URL"
-
-
-
-
     time.sleep(5)
