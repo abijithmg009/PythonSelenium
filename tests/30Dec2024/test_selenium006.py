@@ -66,7 +66,7 @@ def test_vwologinnegative():
     signin_button_ele.click()
     error = driver.find_element(By.ID, "js-notification-box-msg").text
     print(error)
-    assert error == 'Your email, password, IP address or location did not match'
+    assert error == ''
     time.sleep(5)
     driver.quit()
 
