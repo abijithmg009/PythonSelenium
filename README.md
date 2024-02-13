@@ -19,3 +19,7 @@
 2. git commit -m "Message"
 3. git push
 4. git pull (if you add something on gitlab)
+
+## Install parallel execution
+``pip install pytest-xdist``
+``pytest -n auto code/.py -s -v``
