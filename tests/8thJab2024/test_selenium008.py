@@ -13,6 +13,7 @@ def test_login():
     driver.find_element(By.XPATH, "//a[@id='btn-make-appointment']").click()
     assert driver.current_url == "https://katalon-demo-cura.herokuapp.com/profile.php#login"
 
+
     time.sleep(5)
     driver.quit()
 
